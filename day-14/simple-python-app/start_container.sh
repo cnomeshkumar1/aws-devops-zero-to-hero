@@ -1,8 +1,17 @@
 #!/bin/bash
 set -e
 
-# Pull the Docker image from Docker Hub
-echo
+DOCKER_REGISTRY_URL="docker.io"
+DOCKER_REGISTRY_USERNAME="DOCKER_REGISTRY_USERNAME"
+IMAGE_NAME="simple-python-flask-app"
 
-# Run the Docker image as a container
-echo
+echo "Pulling Docker image..."
+docker pull "$DOCKER_REGISTRY_USERNAME/$IMAGE_NAME:latest"
+
+echo "Starting container..."
+docker run -d \
+  --name simple-python-flask-app \
+  -p 80:5000 \
+  "$DOCKER_REGISTRY_USERNAME/$IMAGE_NAME:latest"
+
+echo "Container started successfully"
