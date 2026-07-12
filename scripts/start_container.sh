@@ -6,3 +6,4 @@ docker push cnomeshkumar1/simple-python-flask-app:latest
 
 # Run the Docker image as a container
 docker run -d -p 5000:5000 cnomeshkumar1/simple-python-flask-app:latest
+
